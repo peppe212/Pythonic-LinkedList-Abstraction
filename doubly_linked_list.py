@@ -1,6 +1,4 @@
 """
-Doubly Linked List Module (Main Class)
-
 Author: Giuseppe Muschetta
 Email: g.muschetta@studenti.unipi.it
 Date: July 2025
@@ -42,7 +40,6 @@ class DoublyLinkedList:
         self.size = 0
 
 
-    # Metodi Ausiliari
     @staticmethod
     def _validate_value(value):
         if value is None:
@@ -84,7 +81,6 @@ class DoublyLinkedList:
         assert current is not None, "Internal error: Node not found at valid positive position after traversal."
         return current
 
-
     def clear(self):
         """
         Removes all elements from the list by resetting head, tail, and size.
@@ -100,7 +96,6 @@ class DoublyLinkedList:
         self.size = 0
         assert self.head is None and self.tail is None and self.size == 0, \
             "Internal error: List not properly cleared."
-
 
     def insert_at_beginning(self, value):
         """
@@ -130,7 +125,6 @@ class DoublyLinkedList:
         self.size += 1
         return
 
-
     def insert_at_end(self, value):
         """
         Inserts a new node containing the given value at the end of the list.
@@ -158,7 +152,6 @@ class DoublyLinkedList:
             self.tail = new_node
         self.size += 1
         return
-
 
     def insert_after_node(self, target_value, new_value):
         """
@@ -204,7 +197,6 @@ class DoublyLinkedList:
         self.size += 1
         return
 
-
     def contains(self, value) -> bool:
         """
         Checks whether the specified value exists in the list.
@@ -231,7 +223,6 @@ class DoublyLinkedList:
             else:
                 current = current.next
         return found
-
 
     def insert_before_node(self, target_value, new_value):
         """
@@ -277,7 +268,6 @@ class DoublyLinkedList:
         self.size += 1
         return
 
-
     def delete_at_beginning(self):
         """
         Removes the first element (head) from the list.
@@ -304,7 +294,6 @@ class DoublyLinkedList:
 
         self.size -= 1
         return
-
 
     def delete_at_end(self):
         """
@@ -374,7 +363,6 @@ class DoublyLinkedList:
             current.next.prev = current.prev
             self.size -= 1
 
-
     def delete_at_position(self, position):
         """
         Deletes the element at the specified position.
@@ -396,7 +384,6 @@ class DoublyLinkedList:
             current.next.prev = current.prev
             self.size -= 1
 
-
     def get_size(self) -> int:
         """
         Retrieves the number of elements currently stored in the list.
@@ -406,7 +393,6 @@ class DoublyLinkedList:
         """
         return self.size
 
-
     def is_empty(self) -> bool:
         """
         Checks whether the list is empty.
@@ -415,7 +401,6 @@ class DoublyLinkedList:
             bool: True if the list contains no elements, False otherwise.
         """
         return self.size == 0
-
 
     def to_python_list(self) -> list:
         """
@@ -440,7 +425,6 @@ class DoublyLinkedList:
 
         assert (type(pythonic_list) is list)
         return pythonic_list
-
 
     @staticmethod
     def from_python_list(python_list: list) -> "DoublyLinkedList":
@@ -467,8 +451,6 @@ class DoublyLinkedList:
             dll.insert_at_end(item)
 
         return dll
-
-
 
     def reverse(self):
         """
@@ -520,7 +502,6 @@ class DoublyLinkedList:
             current = current.next
         return clone_to_return
 
-
     def sort(self, reverse: bool = False) -> None:
         """
         Sorts the elements of the list in ascending order by default,
@@ -552,7 +533,6 @@ class DoublyLinkedList:
         print("List sorted successfully." if not reverse else "List sorted in reverse order.")
         return
 
-
     def remove_duplicates(self) -> None:
         """
         Removes all duplicate elements from the list, preserving only the first
@@ -578,7 +558,6 @@ class DoublyLinkedList:
             self.insert_at_end(item)
         return
 
-
     # STACK METHODS (LIFO)
     # This means you can use this DoublyLinkedList as a Stack
     def push(self, value) -> None:
@@ -597,7 +576,6 @@ class DoublyLinkedList:
         self.insert_at_end(value)
         return
 
-
     def pop(self):
         """
         Removes and returns the top (last) element of the stack (end of the list).
@@ -613,7 +591,7 @@ class DoublyLinkedList:
         if self.size == 1:
             value = self.head.info
             assert(value == self.tail.info)
-            self.clear() # ci pensa la clear e resettare anche size
+            self.clear() 
             return value
         else:
             value = self.tail.info
@@ -657,7 +635,6 @@ class DoublyLinkedList:
         self.insert_at_end(value)
         return
 
-
     def dequeue(self):
         """
         Removes and returns the front (first) element of the queue (head of the list).
@@ -680,9 +657,6 @@ class DoublyLinkedList:
         # REMOVE self.size -= 1 from here
         return value
 
-
-
-
     def peek_front(self):
         """
         Returns (without removing) the front (first) element of the queue.
@@ -697,7 +671,6 @@ class DoublyLinkedList:
             raise RuntimeError("Queue must not be empty")
         return self.head.info
 
-
     def peek_rear(self):
         """
         Returns (without removing) the rear (last) element of the queue.
@@ -711,7 +684,6 @@ class DoublyLinkedList:
         if not self.head or not self.tail or self.size == 0:
             raise RuntimeError("Queue must not be empty")
         return self.tail.info
-
 
     def __eq__(self, other) -> bool:
         """
