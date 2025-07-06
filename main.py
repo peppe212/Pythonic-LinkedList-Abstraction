@@ -10,7 +10,7 @@ University: University of Pisa – MSc in Computer Science,
                                  Specialization in "Data Science and Business Informatics"
 Version: 1.0
 License: MIT
-GitHub: https://github.com/gmuschetta/doubly-linked-list
+GitHub: https://github.com/peppe212/Pythonic-LinkedList-Abstraction
 
 Description:
     This main module serves as a full demonstration and testing suite
